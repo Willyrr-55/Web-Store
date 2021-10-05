@@ -1,9 +1,10 @@
 <input type="text" [(ngModel)]="title"> <!--ngModel es una directiva-->
-<!-- {{title}} -->
-
+{{title}}
+<app-product></app-product>
 <div *ngIf="title === 'willy'"> <!-- *ngIf es otra directiva -->
     Este es Willy
 </div>
+
 
 <div *ngIf="title === 'nicolas'"> <!-- *ngIf es otra directiva -->
   Este es Nicolas
@@ -13,12 +14,12 @@
   Este es Camilo
 </div>
 
-<!-- <div [ngSwitch]="title">
+<div [ngSwitch]="title">
   <p *ngSwitchCase="'nicolas'">Este es nicolas</p>
   <p *ngSwitchCase="'willy'">Este es Willy</p>
   <p *ngSwitchCase="'camilo'">Este es camilo</p>
   <p *ngSwitchDefault>No hay match</p>
-</div> -->
+</div>
 
 <div *ngIf="title === 'Store'; then store else welcome">
     Simple vista ss
@@ -44,6 +45,6 @@
 
   <div *ngFor="let product of products">
     {{product.title}}
-    <img [src]="product.image" alt="imagenes">
+    <img [src]="product.image" width="30%" alt="imagenes">
     ${{product.price}}
   </div>
