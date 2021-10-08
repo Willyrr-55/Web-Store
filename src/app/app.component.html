@@ -1,6 +1,6 @@
 <input type="text" [(ngModel)]="title"> <!--ngModel es una directiva-->
 {{title}}
-<app-product></app-product>
+
 <div *ngIf="title === 'willy'"> <!-- *ngIf es otra directiva -->
     Este es Willy
 </div>
@@ -44,7 +44,5 @@
   </ul>
 
   <div *ngFor="let product of products">
-    {{product.title}}
-    <img [src]="product.image" width="30%" alt="imagenes">
-    ${{product.price}}
+    <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
   </div>
