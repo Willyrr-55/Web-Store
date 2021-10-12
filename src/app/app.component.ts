@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Product } from './product.model'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   title = 'platzi-store';
   items = ['nicolas', 'brandon','fernando'];
+
+  power =10;
 
   products: Product[]= [
     {
@@ -65,5 +67,9 @@ export class AppComponent {
   clickProduct(id: number){
     console.log("product");
     console.log(id)
+  }
+
+  ngOnDestroy(){
+    console.log("Metodo OnDestroy");
   }
 }
