@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
-import {ProductsService} from "../core/services/products/products.service";
-import {Product} from "../product.model"
+import {ProductsService} from "../../../core/services/products/products.service";
+import {Product} from "../../../product.model"
 
 // ActivateRoute es la inyeccion de dependencias
 // Params es de tipado

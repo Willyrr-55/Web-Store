@@ -1,27 +1,27 @@
 import {
-    Component, 
-    Input, 
-    Output, 
-    EventEmitter, 
-    OnChanges, 
-    SimpleChanges, 
-    OnInit, 
-    DoCheck, 
+    Component,
+    Input,
+    Output,
+    EventEmitter,
+    OnChanges,
+    SimpleChanges,
+    OnInit,
+    DoCheck,
     OnDestroy
 } from '@angular/core';
-import {Product} from "../product.model";
- 
+import {Product} from "../../../product.model";
+
 @Component({
     selector: "app-product",
     templateUrl: "./product.component.html",
     styleUrls: ["./product.component.css"]
 })
-    
+
 export class ProductComponent implements /*OnChanges,*/ OnInit, DoCheck, OnDestroy{
 
     @Input() product: Product;
     @Output() productClicked: EventEmitter <any> = new EventEmitter();
-    
+
     today = new Date();
 
     constructor(){
@@ -49,4 +49,4 @@ export class ProductComponent implements /*OnChanges,*/ OnInit, DoCheck, OnDestr
         console.log("añadir al carrito");
         this.productClicked.emit(this.product.id)
     }
-}   
+}
