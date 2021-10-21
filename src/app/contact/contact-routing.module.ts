@@ -1,6 +1,6 @@
-import {Routes, RouterModule} from "@angular/router";
-import {NgModule} from "@angular/core";
-import {ContactComponent} from "./components/contact/contact.component";
+import { Routes, RouterModule} from "@angular/router";
+import { NgModule} from "@angular/core";
+import { ContactComponent} from "./components/contact/contact.component";
 
 const routes: Routes=[
   {
@@ -9,5 +9,15 @@ const routes: Routes=[
   }
 ];
 
+@NgModule({
+  imports:[
+    RouterModule.forChild(routes),
+  ],
+  exports:[
+    RouterModule
+  ]
+})
 
-exports class 
+export class ContactRoutinModule {
+
+}

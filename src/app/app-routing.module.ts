@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-import {ContactComponent} from "./contact/contact/contact.component";
-import {DemoComponent} from "./demo/demo.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component"
+import {PageNotFoundComponent} from "./page-not-found/components/page-not-found/page-not-found.component"
 // import {ProductDetailComponent} from "./product/components/product-detail/product-detail.component"
 import {LayoutComponent} from "./layout/layout.component"
 import {AdminGuard} from "./admin.guard";
@@ -28,19 +26,21 @@ const routes: Routes = [
       },
       {
         path:"contact",
-        component: ContactComponent
+        canActivate:[AdminGuard],
+        loadChildren: ()=>import("./contact/contact.module").then(m=>m.ContactModule)
+      },
+      {
+        path:"demo",
+        loadChildren: ()=>import("./demo/demo.module").then(m=>m.DemoModule)
       },
     ]
   },
 
-  {
-    path:"demo",
-    component:DemoComponent
-  },
+
 
   {
     path:"**" /* Este path quiere decir que se ingreso una ruta que no esta definida */,
-    component:PageNotFoundComponent
+    loadChildren: ()=>import("./page-not-found/page-not-found.module").then(m=>m.PageNotFoundModule)
   }
 ];
 
